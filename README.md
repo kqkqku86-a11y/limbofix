@@ -1,4 +1,4 @@
-# Limbo Emulator (QEMU) for Android
+# Limbo Emulator fix (QEMU) for Android
 #
 # For APK Downloads, Guides, and Help visit:
 # https://virtualmachinery.weebly.com
