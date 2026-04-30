@@ -1,4 +1,4 @@
-name: Android16-VirGL-Build
+name: Gradle Build Fix
 on:
   workflow_dispatch:
   push:  
@@ -29,5 +29,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: Limbo-A16-Fixed
+          name: Limbo-Fix
           path: "**/*.apk"
