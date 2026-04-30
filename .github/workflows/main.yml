@@ -1,0 +1,33 @@
+name: Android16-VirGL-Build
+on:
+  workflow_dispatch:
+  push:  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Limbo needs Java 8 or 11 to compile correctly
+      - name: set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      
+      # Use an older Gradle version (6.9.4) for compatibility
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 6.9.4
+
+      - name: Build APK
+        run: |
+          # The robot will now use the older, compatible Gradle
+          gradle assembleDebug
+          
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: Limbo-A16-Fixed
+          path: "**/*.apk"
